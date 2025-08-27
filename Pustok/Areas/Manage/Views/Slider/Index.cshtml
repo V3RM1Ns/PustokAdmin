@@ -1,19 +1,19 @@
-﻿@model IEnumerable<Pustok.Models.Genre>
+@model IEnumerable<Pustok.Models.Slider>
 
 @{
-    ViewData["Title"] = "Kategoriler";
+    ViewData["Title"] = "Slider Yönetimi";
 }
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Kategoriler</h1>
+    <h1 class="h3 mb-0 text-gray-800">Slider Yönetimi</h1>
     <a asp-action="Create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-        <i class="fas fa-plus fa-sm text-white-50"></i> Yeni Kategori Ekle
+        <i class="fas fa-plus fa-sm text-white-50"></i> Yeni Slider Ekle
     </a>
 </div>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Kategoriler Listesi</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Slider Listesi</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -21,7 +21,11 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Kategori Adı</th>
+                        <th>Başlık</th>
+                        <th>Açıklama</th>
+                        <th>Resim</th>
+                        <th>Buton Text</th>
+                        <th>Sıra</th>
                         <th>İşlemler</th>
                     </tr>
                 </thead>
@@ -30,7 +34,13 @@
                     {
                         <tr>
                             <td>@item.Id</td>
-                            <td>@item.Name</td>
+                            <td>@item.Title</td>
+                            <td>@(item.Description.Length > 50 ? item.Description.Substring(0, 50) + "..." : item.Description)</td>
+                            <td>
+                                <img src="~/image/@item.Image" alt="@item.Title" style="width: 80px; height: 50px; object-fit: cover;" />
+                            </td>
+                            <td>@item.ButtonText</td>
+                            <td>@item.Order</td>
                             <td>
                                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i> Düzenle

@@ -1,0 +1,56 @@
+@model Pustok.Models.Slider
+
+@{
+    ViewData["Title"] = "Slider Detayları";
+}
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Slider Detayları</h1>
+    <a asp-action="Index" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-arrow-left fa-sm text-white-50"></i> Geri Dön
+    </a>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Slider Bilgileri</h6>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">ID:</dt>
+            <dd class="col-sm-10">@Model.Id</dd>
+            
+            <dt class="col-sm-2">Başlık:</dt>
+            <dd class="col-sm-10">@Model.Title</dd>
+            
+            <dt class="col-sm-2">Açıklama:</dt>
+            <dd class="col-sm-10">@Model.Description</dd>
+            
+            <dt class="col-sm-2">Resim:</dt>
+            <dd class="col-sm-10">
+                <img src="~/image/@Model.Image" alt="@Model.Title" class="img-thumbnail" style="max-width: 300px;" />
+            </dd>
+            
+            <dt class="col-sm-2">Buton Metni:</dt>
+            <dd class="col-sm-10">@Model.ButtonText</dd>
+            
+            <dt class="col-sm-2">Buton URL:</dt>
+            <dd class="col-sm-10">@Model.ButtonUrl</dd>
+            
+            <dt class="col-sm-2">Sıra:</dt>
+            <dd class="col-sm-10">@Model.Order</dd>
+        </dl>
+        
+        <div class="mt-3">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                <i class="fas fa-edit"></i> Düzenle
+            </a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                <i class="fas fa-trash"></i> Sil
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-list"></i> Listeye Dön
+            </a>
+        </div>
+    </div>
+</div>

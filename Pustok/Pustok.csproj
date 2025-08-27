@@ -72,6 +72,11 @@
       <_ContentIncludedByDefault Remove="Areas\Shared\_AdminLayout.cshtml" />
       <_ContentIncludedByDefault Remove="Areas\Shared\_ViewImports.cshtml" />
       <_ContentIncludedByDefault Remove="Areas\Shared\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Manage\Views\Feature\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Manage\Views\Feature\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Manage\Views\Feature\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Manage\Views\Feature\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Manage\Views\Feature\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>

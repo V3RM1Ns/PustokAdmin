@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Pustok.Data;
 using Pustok.Models;
@@ -6,29 +6,29 @@ using Pustok.Models;
 namespace Pustok.Areas.Manage.Controllers;
 
 [Area("Manage")]
-public class GenreController : Controller
+public class TagController : Controller
 {
     private readonly AppDbContext _context;
 
-    public GenreController(AppDbContext context)
+    public TagController(AppDbContext context)
     {
         _context = context;
     }
 
     public async Task<IActionResult> Index()
     {
-        return View(await _context.Genres.ToListAsync());
+        return View(await _context.Set<Tag>().ToListAsync());
     }
 
     public async Task<IActionResult> Details(int? id)
     {
         if (id == null) return NotFound();
 
-        var genre = await _context.Genres
+        var tag = await _context.Set<Tag>()
             .FirstOrDefaultAsync(m => m.Id == id);
-        if (genre == null) return NotFound();
+        if (tag == null) return NotFound();
 
-        return View(genre);
+        return View(tag);
     }
 
     public IActionResult Create()
@@ -38,78 +38,78 @@ public class GenreController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,Name")] Genre genre)
+    public async Task<IActionResult> Create([Bind("Id,Name")] Tag tag)
     {
         if (ModelState.IsValid)
         {
-            _context.Add(genre);
+            _context.Add(tag);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        return View(genre);
+        return View(tag);
     }
 
     public async Task<IActionResult> Edit(int? id)
     {
         if (id == null) return NotFound();
 
-        var genre = await _context.Genres.FindAsync(id);
-        if (genre == null) return NotFound();
-        return View(genre);
+        var tag = await _context.Set<Tag>().FindAsync(id);
+        if (tag == null) return NotFound();
+        return View(tag);
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Genre genre)
+    public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Tag tag)
     {
-        if (id != genre.Id) return NotFound();
+        if (id != tag.Id) return NotFound();
 
         if (ModelState.IsValid)
         {
             try
             {
-                _context.Update(genre);
+                _context.Update(tag);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!GenreExists(genre.Id))
+                if (!TagExists(tag.Id))
                     return NotFound();
                 else
                     throw;
             }
             return RedirectToAction(nameof(Index));
         }
-        return View(genre);
+        return View(tag);
     }
 
     public async Task<IActionResult> Delete(int? id)
     {
         if (id == null) return NotFound();
 
-        var genre = await _context.Genres
+        var tag = await _context.Set<Tag>()
             .FirstOrDefaultAsync(m => m.Id == id);
-        if (genre == null) return NotFound();
+        if (tag == null) return NotFound();
 
-        return View(genre);
+        return View(tag);
     }
 
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
-        var genre = await _context.Genres.FindAsync(id);
-        if (genre != null)
+        var tag = await _context.Set<Tag>().FindAsync(id);
+        if (tag != null)
         {
-            _context.Genres.Remove(genre);
+            _context.Set<Tag>().Remove(tag);
         }
 
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
-    private bool GenreExists(int id)
+    private bool TagExists(int id)
     {
-        return _context.Genres.Any(e => e.Id == id);
+        return _context.Set<Tag>().Any(e => e.Id == id);
     }
 }

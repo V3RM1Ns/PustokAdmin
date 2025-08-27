@@ -1,19 +1,19 @@
-﻿@model IEnumerable<Pustok.Models.Genre>
+@model IEnumerable<Pustok.Models.Author>
 
 @{
-    ViewData["Title"] = "Kategoriler";
+    ViewData["Title"] = "Yazarlar";
 }
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Kategoriler</h1>
+    <h1 class="h3 mb-0 text-gray-800">Yazarlar</h1>
     <a asp-action="Create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-        <i class="fas fa-plus fa-sm text-white-50"></i> Yeni Kategori Ekle
+        <i class="fas fa-plus fa-sm text-white-50"></i> Yeni Yazar Ekle
     </a>
 </div>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Kategoriler Listesi</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Yazarlar Listesi</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -21,7 +21,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Kategori Adı</th>
+                        <th>Ad</th>
                         <th>İşlemler</th>
                     </tr>
                 </thead>
