@@ -1,0 +1,49 @@
+@model Pustok.Models.Genre
+
+<div class="modal-header">
+    <h5 class="modal-title">Genre Details</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Genre Name</label>
+                <input type="text" class="form-control" disabled value="@Model.Name">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <label>Books in this Genre</label>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Price</th>
+                          
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var book in Model.Books)
+                            {
+                                <tr>
+                                    <td>@book.Title</td>
+                                    <td>@book.Author.Name</td>
+                                    <td>$@book.Price.ToString("0.00")</td>
+                                
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
