@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/apple/RiderProjects/Pustok/Pustok/Pustok.csproj": {}
+    "/Users/apple/RiderProjects/PustokAdmin/Pustok/Pustok.csproj": {}
   },
   "projects": {
-    "/Users/apple/RiderProjects/Pustok/Pustok/Pustok.csproj": {
+    "/Users/apple/RiderProjects/PustokAdmin/Pustok/Pustok.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/apple/RiderProjects/Pustok/Pustok/Pustok.csproj",
+        "projectUniqueName": "/Users/apple/RiderProjects/PustokAdmin/Pustok/Pustok.csproj",
         "projectName": "Pustok",
-        "projectPath": "/Users/apple/RiderProjects/Pustok/Pustok/Pustok.csproj",
+        "projectPath": "/Users/apple/RiderProjects/PustokAdmin/Pustok/Pustok.csproj",
         "packagesPath": "/Users/apple/.nuget/packages/",
-        "outputPath": "/Users/apple/RiderProjects/Pustok/Pustok/obj/",
+        "outputPath": "/Users/apple/RiderProjects/PustokAdmin/Pustok/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/apple/.nuget/NuGet/NuGet.Config"
@@ -47,6 +47,10 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[15.0.1, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
