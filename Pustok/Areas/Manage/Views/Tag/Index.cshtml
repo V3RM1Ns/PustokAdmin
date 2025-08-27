@@ -1,19 +1,19 @@
 @model IEnumerable<Pustok.Models.Tag>
 
 @{
-    ViewData["Title"] = "Etiketler Yönetimi";
+    ViewData["Title"] = "Tags Management";
 }
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Etiketler Yönetimi</h1>
+    <h1 class="h3 mb-0 text-gray-800">Tags Management</h1>
     <a asp-action="Create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-        <i class="fas fa-plus fa-sm text-white-50"></i> Yeni Etiket Ekle
+        <i class="fas fa-plus fa-sm text-white-50"></i> Add New Tag
     </a>
 </div>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Etiketler Listesi</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Tags List</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -21,8 +21,8 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Etiket Adı</th>
-                        <th>İşlemler</th>
+                        <th>Tag Name</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,13 +33,13 @@
                             <td>@item.Name</td>
                             <td>
                                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">
-                                    <i class="fas fa-edit"></i> Düzenle
+                                    <i class="fas fa-edit"></i> Edit
                                 </a>
                                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">
-                                    <i class="fas fa-eye"></i> Detay
+                                    <i class="fas fa-eye"></i> Details
                                 </a>
                                 <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash"></i> Sil
+                                    <i class="fas fa-trash"></i> Delete
                                 </a>
                             </td>
                         </tr>

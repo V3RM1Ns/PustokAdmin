@@ -1,32 +1,32 @@
 ﻿@model Pustok.Models.Genre
 
 @{
-    ViewData["Title"] = "Kategori Düzenle";
+    ViewData["Title"] = "Edit Genre";
 }
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Kategori Düzenle</h1>
+    <h1 class="h3 mb-0 text-gray-800">Edit Genre</h1>
     <a asp-action="Index" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-        <i class="fas fa-arrow-left fa-sm text-white-50"></i> Geri Dön
+        <i class="fas fa-arrow-left fa-sm text-white-50"></i> Back
     </a>
 </div>
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Kategori Bilgilerini Düzenle</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Edit Genre Information</h6>
     </div>
     <div class="card-body">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label">Kategori Adı</label>
+                <label asp-for="Name" class="control-label">Genre Name</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Güncelle" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-secondary">İptal</a>
+                <input type="submit" value="Update" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>
